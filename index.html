@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
     <script>
-    console.log("Hello World")
+        //Generate random number (between 0 and 2), then assign string based on number:
+        function getComputerChoice(){
+            let numba = (Math.floor(Math.random() * 3));
+            return numba;
+
+            if (numba == "0") {
+                console.log("rock");
+            }
+            else if (numba == "1") {
+                console.log("paper");
+            }
+            else {
+                console.log("scissors");
+            }
+        }
     </script>
 </body>
-</html>
 
+</html>

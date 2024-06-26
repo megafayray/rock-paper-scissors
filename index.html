@@ -18,6 +18,23 @@
 let humanScore = "0";
 let computerScore = "0";
 
+//STEP THREE:
+//Create a function to prompt the user to enter a choice
+function getHumanChoice(){
+    let ask = prompt("Enter your choice here"); //This prompts the user
+    //Conditional outcomes:
+    if (ask.toLowerCase()=== "rock") {
+        console.log("rock");
+    }
+    else if(ask.toLowerCase()=== "paper") {
+        console.log("paper");
+    }
+    else {console.log("scissors")
+    }
+}
+
+getHumanChoice(); //Call the function
+
 //STEP TWO:
         //Create a conditional function:
         function getComputerChoice(){

@@ -8,57 +8,64 @@
 </head>
 
 <body>
-    <script>
+<script>
 
-
-        console.log("Hello Dolly")
-
-//STEP FOUR:
-//Declare players score variables in the global scope (aka outside of a function):
-let humanScore = "0";
-let computerScore = "0";
-
-//STEP THREE:
-//Create a function to prompt the user to enter a choice
-function getHumanChoice(){
-    let ask = prompt("Enter your choice here"); //This prompts the user
-    //Conditional outcomes:
-    if (ask.toLowerCase()=== "rock") {
-        console.log("rock");
+//Play one round function:
+function playRound(humanChoice, computerChoice){
+    if(humanChoice === computerChoice){
+        console.log("It's a draw!");
     }
-    else if(ask.toLowerCase()=== "paper") {
-        console.log("paper");
-    }
-    else {console.log("scissors")
-    }
+    else if(humanChoice === "rock" && computerChoice === "scissors" ||
+        humanChoice === "paper" && computerChoice === "rock" ||
+        humanChoice === "scissors" && computerChoice === "paper") {
+        console.log("You win!");
+        }
+
+    else if(humanChoice === "rock" && computerChoice === "paper" ||
+            humanChoice === "paper" && computerChoice === "scissors" ||
+            humanChoice === "scissors" && computerChoice === "rock"){
+            console.log("You lose!"); 
+            }
+    else{
+        console.log("Somethings not working here");
+    }        
 }
 
-getHumanChoice(); //Call the function
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+console.log("Player chose" + " " + humanChoice);
+console.log("Computer chose" + " " + computerChoice);
+playRound(humanChoice, computerChoice);
 
-//STEP TWO:
-        //Create a conditional function:
-        function getComputerChoice(){
-            let numba = Math.floor(Math.random()*3); //Creates a number generator
-            console.log(numba); //Checks to make sure the generator works
-            //Conditional outcomes:
+//Computer Choice Function:
+function getComputerChoice(){
+    let numba = Math.floor(Math.random()*3); //Creates a number generator
             if (numba == "0"){ 
-                console.log("rock");
+                return "rock";
             }
 
             else if (numba == "1"){
-                console.log("paper");
+                return "paper";
             }
             else {
-                console.log("scissors");
+                return "scissors";
             }
-        }
+}
 
-        //Call the function(s):
-        getComputerChoice();
+//Prompt for Human Choice Function:
+function getHumanChoice(){
+    let ask = prompt("Enter your choice here"); //This prompts the user
+    if (ask.toLowerCase()=== "rock") {
+        return "rock";
+    }
+    else if(ask.toLowerCase()=== "paper") {
+        return "paper";
+    }
+    else {return "scissors";
+    }
+}
 
-//STEP TWO:
-
-    </script>
+</script>
 </body>
 
 </html>

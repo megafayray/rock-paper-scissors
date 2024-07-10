@@ -1,6 +1,11 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const roundResults = document.querySelector("#roundResults");
+const gameInfo = document.querySelector("#gameInfo");
+const gameOver = document.querySelector("#gameOver");
+
+
 function playRound(humanChoice, computerChoice){
     if(humanChoice === computerChoice){
         alert("It's a draw! Your score:" + " " + humanScore + " & " + "Computer score:" + " " + computerScore);
@@ -29,12 +34,12 @@ buttons.forEach((button) => {
         let computerChoice = getComputerChoice();
         let humanChoice = button.id;
         playRound(humanChoice,computerChoice);
+        game();
     })
 })
 
-//Computer Choice Function:
 function getComputerChoice(){
-    let numba = Math.floor(Math.random()*3); //Creates a number generator
+    let numba = Math.floor(Math.random()*3);
             if (numba == "0"){ 
                 return "rock";
             }
@@ -47,3 +52,12 @@ function getComputerChoice(){
             }
 }
 
+function game(){
+    gameInfo.textContent = `Human: ${humanScore} Computer: ${computerScore}`;
+    if (humanScore === 5){
+        gameOver.textContent = "GAME OVER: YOU WON 5 GAMES!";
+    }
+    else if (computerScore === 5){
+        gameOver.textContent = "GAME OVER: Computer won 5 games";
+        }
+}

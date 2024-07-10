@@ -5,75 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="javascript.js" defer></script>
 </head>
 
 <body>
-<script>
-//Declare players score variables:
-let humanScore = 0;
-let computerScore = 0;
-//Pseudocode:
-//if the result of function playRound is "You lose!", increment computerScore by 1;
-//if the result of function playRound is "You win", increment humanScore by 1;
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
-//Play one round function:
-function playRound(humanChoice, computerChoice){
-    if(humanChoice === computerChoice){
-        alert("It's a draw! Your score:" + " " + humanScore + " & " + "Computer score:" + " " + computerScore);
-    }
-    else if(humanChoice === "rock" && computerChoice === "scissors" ||
-        humanChoice === "paper" && computerChoice === "rock" ||
-        humanChoice === "scissors" && computerChoice === "paper") {
-        humanScore++;
-        alert("You win! Your score:" + " " + humanScore + " & " + "Computer score:" + " " + computerScore);
-        }
-
-    else if(humanChoice === "rock" && computerChoice === "paper" ||
-        humanChoice === "paper" && computerChoice === "scissors" ||
-        humanChoice === "scissors" && computerChoice === "rock"){
-        computerScore++;
-        alert("You lose! Your score:" + " " + humanScore + " & " + "Computer score:" + " " + computerScore);
-        }
-    else{
-        alert("Somethings not working here - please try again");
-    }        
-}
-
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-console.log("Player chose" + " " + humanChoice);
-console.log("Computer chose" + " " + computerChoice);
-playRound(humanChoice, computerChoice);
-
-//Computer Choice Function:
-function getComputerChoice(){
-    let numba = Math.floor(Math.random()*3); //Creates a number generator
-            if (numba == "0"){ 
-                return "rock";
-            }
-
-            else if (numba == "1"){
-                return "paper";
-            }
-            else {
-                return "scissors";
-            }
-}
-
-//Prompt for Human Choice Function:
-function getHumanChoice(){
-    let ask = prompt("Enter your choice here"); //This prompts the user
-    if (ask.toLowerCase()=== "rock") {
-        return "rock";
-    }
-    else if(ask.toLowerCase()=== "paper") {
-        return "paper";
-    }
-    else {return "scissors";
-    }
-}
-
-</script>
+    <div id="results"></div>
 </body>
 
 </html>
